@@ -1,4 +1,4 @@
-import { calculateTotalByDE } from "./utils";
+import { sumByDE } from "./utils";
 import React from "react";
 
 const maleDEIds = [
@@ -28,8 +28,8 @@ const ageRe = /[<>=0-9\+\-]+/;
 
 const sexRe = /(Male|Female)/;
 
-const maleAggregatedData = calculateTotalByDE(maleDEIds);
-const femaleAggregatedData = calculateTotalByDE(femaleDEIds);
+const maleAggregatedData = sumByDE(maleDEIds);
+const femaleAggregatedData = sumByDE(femaleDEIds);
 const labels = ["<1", "1", "2-4", "5-14", "15-44", "45-49", "50-59", "60+"];
 
 // const aggregatedData = data.headers.reduce((result, header, index) => {

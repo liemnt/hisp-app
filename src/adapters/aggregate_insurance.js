@@ -1,5 +1,5 @@
 import React from "react";
-import { calculateTotalByDE, calculateDumpTotalByDE } from "./utils";
+import { sumByDE, sumDumpByDE } from "./utils";
 
 const insuranceDEIds = [
   "bXy7dRTxSUN",
@@ -21,8 +21,8 @@ const labels = [
   "Dont Know"
 ];
 
-const insuranceAggregatedData = calculateTotalByDE(insuranceDEIds);
-const insuranceAggregatedDumpData = calculateDumpTotalByDE(insuranceDEIds, [
+const insuranceAggregatedData = sumByDE(insuranceDEIds);
+const insuranceAggregatedDumpData = sumDumpByDE(insuranceDEIds, [
   0,
   3
 ]);
