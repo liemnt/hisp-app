@@ -25,7 +25,7 @@ function App() {
       <Grid item xs={12}>
         <Grid container justify="flex-end">
           <Box p={1}>
-            <IconButton  size="small" component="span">
+            <IconButton size="small" component="span">
               <Close classes={buttonStyle} />
             </IconButton>
           </Box>
@@ -55,7 +55,7 @@ function App() {
           <Box p={2} boxShadow={2}>
             <EthnicityChart />
           </Box>
-        </Grid>{" "}
+        </Grid>
         <Grid item xs={12} md={6}>
           <Box p={2} boxShadow={2}>
             <InsuranceChart />
@@ -65,7 +65,7 @@ function App() {
           <Box p={2} boxShadow={2}>
             <WaterSource />
           </Box>
-        </Grid>{" "}
+        </Grid>
         <Grid item xs={12} md={6}>
           <Box p={2} boxShadow={2}>
             <ToiletTypeChart />
