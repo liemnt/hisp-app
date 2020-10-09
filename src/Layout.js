@@ -80,18 +80,11 @@ function Layout() {
             <MortalityBarChart />
           </Box>
         </Grid>
-        {Array.from(
-          {
-            length: 6
-          },
-          (value, index) => {
-            return (
-              <Grid item key={index} xs={12} md={6}>
-                <Box p={2} boxShadow={2}>{`Chart${index + 1}`}</Box>
-              </Grid>
-            );
-          }
-        )}
+        <Grid item xs={12} md={6}>
+          <Box p={2} boxShadow={2}>
+            The last chart
+          </Box>
+        </Grid>
       </Grid>
     </Container>
   );
