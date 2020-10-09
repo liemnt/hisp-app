@@ -19,7 +19,7 @@ const labels = [
   "Delivery at Provincial Hospital",
   "Delivery at Central Hospital",
   "Delivery at Private Hospital",
-  "Delivery in other place"
+  "Delivery in other places"
 ];
 
 const deliveryPlaceAggregatedData = sumByDEs(insuranceDEIds);
