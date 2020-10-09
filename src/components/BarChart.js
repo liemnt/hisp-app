@@ -9,10 +9,7 @@ function BarChart({ data, title, labels }) {
       display: true,
       text: title
     },
-    responsive: true,
-    legend: {
-      display: false
-    }
+    responsive: true
   };
   return (
     <Bar
@@ -27,6 +24,9 @@ function BarChart({ data, title, labels }) {
         ]
       }}
       options={options}
+      legend={{
+        display: false
+      }}
     />
   );
 }

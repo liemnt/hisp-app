@@ -1,5 +1,4 @@
 import { sumByDEs } from "./utils";
-import React from "react";
 
 const maleDEIds = [
   "Eqi1288N8Nd",
@@ -10,7 +9,7 @@ const maleDEIds = [
   "osp7h6GLyV8",
   "GTEknIuyEiO",
   "y9zGBpMBAhQ"
-]; // in order by age
+].reverse(); // in order by age
 const femaleDEIds = [
   "eDwcbrF4Qsr",
   "xllqsmDiexq",
@@ -20,17 +19,26 @@ const femaleDEIds = [
   "Gf8F7hQqygz",
   "AI5nHnkf5WR",
   "dE6mw0hXdAt"
-]; // in order by age
+].reverse(); // in order by age
 
-const re = /^FI:\s+Family\s+members\s+[<>=0-9\+\-]+\s+year(s?)\s+(Male|Female)\s*$/;
-
-const ageRe = /[<>=0-9\+\-]+/;
-
-const sexRe = /(Male|Female)/;
+// const re = /^FI:\s+Family\s+members\s+[<>=0-9\+\-]+\s+year(s?)\s+(Male|Female)\s*$/;
+//
+// const ageRe = /[<>=0-9\+\-]+/;
+//
+// const sexRe = /(Male|Female)/;
 
 const maleAggregatedData = sumByDEs(maleDEIds);
 const femaleAggregatedData = sumByDEs(femaleDEIds);
-const labels = ["<1", "1", "2-4", "5-14", "15-44", "45-49", "50-59", "60+"];
+const labels = [
+  "<1",
+  "1",
+  "2-4",
+  "5-14",
+  "15-44",
+  "45-49",
+  "50-59",
+  "60+"
+].reverse();
 
 // const aggregatedData = data.headers.reduce((result, header, index) => {
 //   const validatedHeader = re.test(header.column);

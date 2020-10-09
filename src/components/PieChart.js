@@ -29,12 +29,10 @@ const DeliveryPlaceChart = ({ data, labels, title }) => {
           display: true,
           text: title
         },
-        responsive: true,
-        legend: {
-          fullWidth: false,
-          position: "bottom",
-          maxWidth: 10
-        }
+        responsive: true
+      }}
+      legend={{
+        position: "bottom"
       }}
     />
   );
