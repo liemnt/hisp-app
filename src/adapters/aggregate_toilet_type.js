@@ -1,4 +1,3 @@
-import React from "react";
 import { countByOptionsFromDE, getOptionsFromDE } from "./utils";
 
 const toiletTypeDEId = "BDi5vJcbiMv";

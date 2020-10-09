@@ -1,4 +1,3 @@
-import React from "react";
 import { sumByDEs, sumDumpByDE } from "./utils";
 
 const insuranceDEIds = [
