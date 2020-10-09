@@ -1,5 +1,5 @@
 import React from "react";
-import { sumByDE, sumDumpByDE } from "./utils";
+import { sumByDEs, sumDumpByDE } from "./utils";
 
 const ethnicityDEIds = [
   "HJCjFyZe3fd",
@@ -17,10 +17,7 @@ const labels = [
   "Others"
 ];
 
-const ethnicityAggregatedData = sumByDE(ethnicityDEIds);
-const ethnicityAggregatedDumpData = sumDumpByDE(ethnicityDEIds, [
-  0,
-  3
-]);
+const ethnicityAggregatedData = sumByDEs(ethnicityDEIds);
+const ethnicityAggregatedDumpData = sumDumpByDE(ethnicityDEIds, [0, 3]);
 
 export { ethnicityAggregatedData, ethnicityAggregatedDumpData, labels };

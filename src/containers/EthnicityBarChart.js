@@ -1,12 +1,11 @@
 import BarChart from "../components/BarChart";
 import React from "react";
 import {
-  labels,
-  ethnicityAggregatedDumpData
+  ethnicityAggregatedDumpData,
+  labels
 } from "../adapters/aggregate_ethnicity";
-import PropTypes from "prop-types";
 
-function EthnicityChart(props) {
+function EthnicityBarChart(props) {
   return (
     <BarChart
       labels={labels}
@@ -16,7 +15,7 @@ function EthnicityChart(props) {
   );
 }
 
-EthnicityChart.propTypes = {};
-EthnicityChart.defaultProps = {};
+EthnicityBarChart.propTypes = {};
+EthnicityBarChart.defaultProps = {};
 
-export default EthnicityChart;
+export default EthnicityBarChart;

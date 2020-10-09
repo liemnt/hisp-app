@@ -21,22 +21,23 @@ const countByOptionsFromDE = deId => {
   });
 };
 
-const sumByDE = deIds => {
+const sumBySingleDeId = deId => {
+  const dataValueIndex = getDataValueIndex(deId);
+  return data.rows.reduce((total, value) => {
+    total += +value[dataValueIndex];
+    return total;
+  }, 0);
+};
+
+const sumByDEs = deIds => {
   return deIds.map(deId => {
     if (Array.isArray(deId)) {
-      return deId.map(singleDEId => {
-        const index = getDataValueIndex(singleDEId);
-        return data.rows.reduce((total, value) => {
-          total += +value[index];
-          return total;
-        }, 0);
-      })
+      return sumByDEs(deId).reduce((result, dataValue) => {
+        result += dataValue;
+        return result;
+      }, 0);
     }
-    const index = getDataValueIndex(deId);
-    return data.rows.reduce((total, value) => {
-      total += +value[index];
-      return total;
-    }, 0);
+    return sumBySingleDeId(deId);
   });
 };
 
@@ -49,4 +50,4 @@ const sumDumpByDE = (deIds, [min, max]) => {
   });
 };
 
-export { sumByDE, sumDumpByDE, getOptionsFromDE, countByOptionsFromDE };
+export { sumByDEs, sumDumpByDE, getOptionsFromDE, countByOptionsFromDE };

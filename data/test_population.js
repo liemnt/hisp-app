@@ -67,7 +67,7 @@ const ageSort = (a, b) => {
 };
 
 Object.keys(sexGroup).map(key => {
-    sexGroup[key].sort(ageSort);
+  sexGroup[key].sort(ageSort);
 });
 
 console.log(sexGroup);

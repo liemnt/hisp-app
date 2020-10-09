@@ -1,9 +1,9 @@
-import React, { useRef, useEffect } from "react";
-import Chart from "chart.js";
+import React from "react";
+import { HorizontalBar } from "react-chartjs-2";
 import {
+  femaleAggregatedData,
   labels,
-  maleAggregatedData,
-  femaleAggregatedData
+  maleAggregatedData
 } from "../adapters/aggregate_population";
 
 const barChartData = {
@@ -27,72 +27,60 @@ const barChartData = {
 };
 
 const PopulationPyramidChart = () => {
-  const canvasRef = useRef(null);
-  useEffect(() => {
-    const ctx = canvasRef && canvasRef.current;
-    const ctx2d = ctx && ctx.getContext("2d");
-    if (ctx2d) {
-      new Chart(ctx2d, {
-        type: "horizontalBar",
-        data: barChartData,
-        options: {
-          title: {
-            position: "bottom",
-            fontSize: 18,
-            display: true,
-            text: "Population Pyramid"
-          },
-          tooltips: {
-            intersect: false,
-            callbacks: {
-              label: c => {
-                const value = Number(c.value);
-                const positiveOnly = value < 0 ? -value : value;
-                let retStr = "";
-                if (c.datasetIndex === 0) {
-                  retStr += `Male: ${positiveOnly.toString()}`;
-                } else {
-                  retStr += `Female: ${positiveOnly.toString()}`;
+  return (
+    <HorizontalBar
+      data={barChartData}
+      options={{
+        title: {
+          position: "bottom",
+          fontSize: 18,
+          display: true,
+          text: "Population Pyramid"
+        },
+        tooltips: {
+          intersect: false,
+          callbacks: {
+            label: c => {
+              const value = Number(c.value);
+              const positiveOnly = value < 0 ? -value : value;
+              let retStr = "";
+              if (c.datasetIndex === 0) {
+                retStr += `Male: ${positiveOnly.toString()}`;
+              } else {
+                retStr += `Female: ${positiveOnly.toString()}`;
+              }
+              return retStr;
+            }
+          }
+        },
+        responsive: true,
+        legend: {
+          position: "bottom"
+        },
+        scales: {
+          xAxes: [
+            {
+              stacked: false,
+              ticks: {
+                beginAtZero: true,
+                callback: v => {
+                  return v < 0 ? -v : v;
                 }
-                return retStr;
               }
             }
-          },
-          responsive: true,
-          legend: {
-            position: "bottom"
-          },
-          scales: {
-            xAxes: [
-              {
-                stacked: false,
-                ticks: {
-                  beginAtZero: true,
-                  callback: v => {
-                    return v < 0 ? -v : v;
-                  }
-                }
-              }
-            ],
-            yAxes: [
-              {
-                stacked: true,
-                ticks: {
-                  beginAtZero: true
-                },
-                position: "left"
-              }
-            ]
-          }
+          ],
+          yAxes: [
+            {
+              stacked: true,
+              ticks: {
+                beginAtZero: true
+              },
+              position: "left"
+            }
+          ]
         }
-      });
-    }
-  }, []);
-
-  return (
-    <div>
-      <canvas ref={canvasRef} />
-    </div>
+      }}
+    />
   );
 };
 

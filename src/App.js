@@ -5,10 +5,14 @@ import Box from "@material-ui/core/Box";
 import IconButton from "@material-ui/core/IconButton";
 import Close from "@material-ui/icons/Close";
 import PopulationPyramidChart from "./containers/PopulationPyramidChart";
-import EthnicityChart from "./containers/EthnicityChart";
-import InsuranceChart from "./containers/InsuranceChart";
-import WaterSource from "./containers/WaterSourceChart";
-import ToiletTypeChart from "./containers/ToiletTypeChart";
+import EthnicityBarChart from "./containers/EthnicityBarChart";
+import InsuranceBarChart from "./containers/InsuranceBarChart";
+import WaterSource from "./containers/WaterSourceBarChart";
+import ToiletTypeBarChart from "./containers/ToiletTypeBarChart";
+import DeliveryPlacePieChart from "./containers/DeliveryPlacePieChart";
+import PersonnelPieChart from "./containers/PersonnelPieChart";
+import MortalityBarChart from "./containers/MortalityBarChart";
+import YearSelector from "./containers/YearSelector";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -34,7 +38,9 @@ function App() {
       <Grid spacing={1} container>
         <Grid item xs={12}>
           <Box p={2} boxShadow={2}>
-            Selector
+            <Grid container justify="center">
+              <YearSelector />
+            </Grid>
           </Box>
         </Grid>
         <Grid item xs={12}>
@@ -53,12 +59,12 @@ function App() {
         </Grid>
         <Grid item xs={12} md={6}>
           <Box p={2} boxShadow={2}>
-            <EthnicityChart />
+            <EthnicityBarChart />
           </Box>
         </Grid>
         <Grid item xs={12} md={6}>
           <Box p={2} boxShadow={2}>
-            <InsuranceChart />
+            <InsuranceBarChart />
           </Box>
         </Grid>
         <Grid item xs={12} md={6}>
@@ -68,7 +74,22 @@ function App() {
         </Grid>
         <Grid item xs={12} md={6}>
           <Box p={2} boxShadow={2}>
-            <ToiletTypeChart />
+            <ToiletTypeBarChart />
+          </Box>
+        </Grid>{" "}
+        <Grid item xs={12} md={6}>
+          <Box p={2} boxShadow={2}>
+            <DeliveryPlacePieChart />
+          </Box>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Box p={2} boxShadow={2}>
+            <PersonnelPieChart />
+          </Box>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Box p={2} boxShadow={2}>
+            <MortalityBarChart />
           </Box>
         </Grid>
         {Array.from(
