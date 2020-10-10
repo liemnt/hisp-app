@@ -18,7 +18,7 @@ function YearSelector(props) {
     setYear(event.target.value);
   };
   return (
-    <FormControl variant="outlined" classes={formControlStyle}>
+    <FormControl classes={formControlStyle}>
       <InputLabel shrink id="year-label">
         Year
       </InputLabel>

@@ -27,7 +27,7 @@ function Layout() {
       <Grid spacing={1} container>
         <Grid item xs={12}>
           <Box p={2} boxShadow={2}>
-            <Grid container justify="center">
+            <Grid container justify="flex-start">
               <YearSelector />
             </Grid>
           </Box>
