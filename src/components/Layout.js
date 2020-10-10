@@ -14,7 +14,7 @@ import YearSelector from "../containers/YearSelector";
 import CloseButton from "../containers/CloseButton";
 import DisabilityChart from "../containers/DisabilityChart";
 
-function Layout({ data }) {
+function Layout({ data, year, setYear }) {
   return (
     <Container maxWidth={false}>
       <Grid item xs={12}>
@@ -28,7 +28,7 @@ function Layout({ data }) {
         <Grid item xs={12}>
           <Box p={2} boxShadow={2}>
             <Grid container justify="flex-start">
-              <YearSelector />
+              <YearSelector setYear={setYear} year={year} />
             </Grid>
           </Box>
         </Grid>

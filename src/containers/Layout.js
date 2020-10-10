@@ -7,22 +7,23 @@ function LayoutContainer(props) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
+  const [year, setYear] = useState("all");
+
+  const getDataFromApi = async () => {
+    setLoading(true);
+    try {
+      const data = await getAggregatedData(year);
+      setData(data);
+    } catch (e) {
+      setError(e.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const getData = async () => {
-      setLoading(true);
-      try {
-        const data = await getAggregatedData();
-        console.log("test data", data);
-        setData(data);
-      } catch (e) {
-        setError(e.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-    getData();
-  }, []);
-  console.log("data ne ne ne", data);
+    getDataFromApi();
+  }, [year]);
   return withLoading(
     Layout,
     {
@@ -30,7 +31,9 @@ function LayoutContainer(props) {
       errorMessage: error
     },
     {
-      data
+      data,
+      year,
+      setYear
     }
   );
 }

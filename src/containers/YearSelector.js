@@ -11,9 +11,8 @@ const useFormControlStyle = makeStyles({
   }
 });
 
-function YearSelector(props) {
+function YearSelector({ year, setYear }) {
   const formControlStyle = useFormControlStyle();
-  const [year, setYear] = useState("all");
   const setYearOnChangeSelect = event => {
     setYear(event.target.value);
   };
