@@ -1,11 +1,13 @@
 import BarChart from "../components/BarChart";
 import React from "react";
 import {
-  insuranceAggregatedData,
+  calculateInsuranceAggregatedData,
   labels
 } from "../adapters/aggregate_insurance";
+import PropTypes from "prop-types";
 
-function InsuranceBarChart(props) {
+function InsuranceBarChart({ data }) {
+  const insuranceAggregatedData = calculateInsuranceAggregatedData(data);
   return (
     <BarChart
       labels={labels}
@@ -15,7 +17,9 @@ function InsuranceBarChart(props) {
   );
 }
 
-InsuranceBarChart.propTypes = {};
+InsuranceBarChart.propTypes = {
+  data: PropTypes.object.isRequired
+};
 InsuranceBarChart.defaultProps = {};
 
 export default InsuranceBarChart;

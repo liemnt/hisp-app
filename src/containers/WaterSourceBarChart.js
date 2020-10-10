@@ -1,11 +1,14 @@
 import BarChart from "../components/BarChart";
 import React from "react";
 import {
-  labels,
-  waterSourceAggregatedData
+  calculateWaterSourceAggregatedData,
+  getOptionLabels
 } from "../adapters/aggregate_water_source";
+import PropTypes from "prop-types";
 
-function WaterSource(props) {
+function WaterSource({ data }) {
+  const labels = getOptionLabels(data);
+  const waterSourceAggregatedData = calculateWaterSourceAggregatedData(data);
   return (
     <BarChart
       labels={labels}
@@ -15,7 +18,9 @@ function WaterSource(props) {
   );
 }
 
-WaterSource.propTypes = {};
+WaterSource.propTypes = {
+  data: PropTypes.object.isRequired
+};
 WaterSource.defaultProps = {};
 
 export default WaterSource;

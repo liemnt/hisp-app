@@ -1,5 +1,6 @@
 import React from "react";
 import { Pie } from "react-chartjs-2";
+import { COLORS } from "./styles";
 
 const DeliveryPlaceChart = ({ data, labels, title }) => {
   const pieChartData = {
@@ -8,14 +9,7 @@ const DeliveryPlaceChart = ({ data, labels, title }) => {
       {
         maxBarThickness: 45,
         data,
-        backgroundColor: [
-          "#4C73BE",
-          "#DF8244",
-          "#A5A5A5",
-          "#F7C142",
-          "#689BD0",
-          "#7EAA55"
-        ]
+        backgroundColor: COLORS
       }
     ]
   };

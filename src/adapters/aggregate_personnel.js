@@ -1,4 +1,4 @@
-import { sumByDEs } from "./utils";
+import bindDataContext from "./data_context";
 
 const labels = [
   "Self birth",
@@ -16,6 +16,7 @@ const personnelDEIds = [
   "YIg4eMjDYLg"
 ];
 
-const personnelAggregatedData = sumByDEs(personnelDEIds);
+const calculatePersonnelAggregatedData = data =>
+  bindDataContext(data).sumByDEs(personnelDEIds);
 
-export { labels, personnelAggregatedData };
+export { labels, calculatePersonnelAggregatedData };

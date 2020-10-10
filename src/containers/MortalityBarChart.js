@@ -1,11 +1,13 @@
 import BarChart from "../components/BarChart";
 import React from "react";
+import PropTypes from "prop-types";
 import {
-  aggregatedMortalityData,
+  calculateAggregatedMortalityData,
   labels
 } from "../adapters/aggregate_mortality";
 
-function MortalityBarChart(props) {
+function MortalityBarChart({ data }) {
+  const aggregatedMortalityData = calculateAggregatedMortalityData(data);
   return (
     <BarChart
       labels={labels}
@@ -15,7 +17,9 @@ function MortalityBarChart(props) {
   );
 }
 
-MortalityBarChart.propTypes = {};
+MortalityBarChart.propTypes = {
+  data: PropTypes.object.isRequired
+};
 MortalityBarChart.defaultProps = {};
 
 export default MortalityBarChart;

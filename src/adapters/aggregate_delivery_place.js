@@ -1,6 +1,7 @@
-import { sumByDEs, sum } from "./utils";
+import { sumByLevel } from "./utils";
+import bindDataContext from "./data_context";
 
-const groupedInsuranceDEIds = [
+const insuranceDEIds = [
   "jxfyOMxkbIw",
   "y3h4wxW3w50",
   "ispm3X8fxSY",
@@ -13,10 +14,6 @@ const groupedInsuranceDEIds = [
   ]
 ];
 
-const insuranceDEIds = groupedInsuranceDEIds.map(dataValue =>
-  Array.isArray(dataValue) ? sum(dataValue) : dataValue
-);
-
 const labels = [
   "Delivery at home",
   "Delivery at District Hospital",
@@ -26,6 +23,9 @@ const labels = [
   "Delivery in other places"
 ];
 
-const deliveryPlaceAggregatedData = sumByDEs(insuranceDEIds);
+const calculateDeliveryPlaceAggregatedData = data => {
+  const aggregatedData = bindDataContext(data).sumByDEs(insuranceDEIds);
+  return sumByLevel(1)(aggregatedData);
+};
 
-export { deliveryPlaceAggregatedData, labels };
+export { calculateDeliveryPlaceAggregatedData, labels };

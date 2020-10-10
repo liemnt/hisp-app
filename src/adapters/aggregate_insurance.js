@@ -1,4 +1,4 @@
-import { sumByDEs, sumDumpByDE } from "./utils";
+import bindDataContext from "./data_context";
 
 const insuranceDEIds = [
   "bXy7dRTxSUN",
@@ -20,7 +20,7 @@ const labels = [
   "Dont Know"
 ];
 
-const insuranceAggregatedData = sumByDEs(insuranceDEIds);
-const insuranceAggregatedDumpData = sumDumpByDE(insuranceDEIds, [0, 3]);
+const calculateInsuranceAggregatedData = data =>
+  bindDataContext(data).sumByDEs(insuranceDEIds);
 
-export { insuranceAggregatedData, insuranceAggregatedDumpData, labels };
+export { calculateInsuranceAggregatedData, labels };

@@ -1,12 +1,16 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {
-  femaleAggregatedData,
-  labels,
-  maleAggregatedData
+  calculatePopulationAggregatedData,
+  labels
 } from "../adapters/aggregate_population";
 import PyramidChart from "../components/PyramidChart";
 
-const PopulationPyramidChart = () => {
+const PopulationPyramidChart = ({ data }) => {
+  const [
+    maleAggregatedData,
+    femaleAggregatedData
+  ] = calculatePopulationAggregatedData(data);
   return (
     <PyramidChart
       labels={labels}
@@ -15,6 +19,10 @@ const PopulationPyramidChart = () => {
       title="Population Pyramid"
     />
   );
+};
+
+PopulationPyramidChart.propTypes = {
+  data: PropTypes.object.isRequired
 };
 
 export default PopulationPyramidChart;

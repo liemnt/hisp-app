@@ -1,11 +1,13 @@
 import React from "react";
 import PieChart from "../components/PieChart";
 import {
-  labels,
-  personnelAggregatedData
+  calculatePersonnelAggregatedData,
+  labels
 } from "../adapters/aggregate_personnel";
+import PropTypes from "prop-types";
 
-const PersonnelPlacePieChart = () => {
+const PersonnelPlacePieChart = ({ data }) => {
+  const personnelAggregatedData = calculatePersonnelAggregatedData(data);
   return (
     <PieChart
       data={personnelAggregatedData}
@@ -13,6 +15,10 @@ const PersonnelPlacePieChart = () => {
       title="Delivery by personnel"
     />
   );
+};
+
+PersonnelPlacePieChart.propTypes = {
+  data: PropTypes.object.isRequired
 };
 
 export default PersonnelPlacePieChart;

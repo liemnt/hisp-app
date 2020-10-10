@@ -1,4 +1,4 @@
-import { sumByDEs, sumDumpByDE } from "./utils";
+import bindDataContext from "./data_context";
 
 const ethnicityDEIds = [
   "HJCjFyZe3fd",
@@ -16,7 +16,7 @@ const labels = [
   "Others"
 ];
 
-const ethnicityAggregatedData = sumByDEs(ethnicityDEIds);
-const ethnicityAggregatedDumpData = sumDumpByDE(ethnicityDEIds, [0, 3]);
+const calculateEthnicityAggregatedData = data =>
+  bindDataContext(data).sumByDEs(ethnicityDEIds);
 
-export { ethnicityAggregatedData, ethnicityAggregatedDumpData, labels };
+export { calculateEthnicityAggregatedData, labels };

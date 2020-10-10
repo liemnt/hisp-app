@@ -1,4 +1,5 @@
-import { sum, sumByDEs } from "./utils";
+import { sum } from "./utils";
+import bindDataContext from "./data_context";
 
 const labels = [
   "Total Death",
@@ -17,11 +18,9 @@ const mortalityDeIds = [
   "LmGX6VpLkIX"
 ];
 
-const originalMortalityData = sumByDEs(mortalityDeIds);
+const calculateAggregatedMortalityData = data => {
+  const originalMortalityData = bindDataContext(data).sumByDEs(mortalityDeIds);
+  return [sum(originalMortalityData), ...originalMortalityData];
+};
 
-const aggregatedMortalityData = [
-  sum(originalMortalityData),
-  ...originalMortalityData
-];
-
-export { aggregatedMortalityData, labels };
+export { calculateAggregatedMortalityData, labels };

@@ -1,11 +1,15 @@
 import BarChart from "../components/BarChart";
 import React from "react";
 import {
-  labels,
-  toiletTypeAggregatedData
+  calculateToiletTypeAggregatedData,
+  getOptionLabels
 } from "../adapters/aggregate_toilet_type";
+import PropTypes from "prop-types";
 
-function ToiletTypeBarChart(props) {
+function ToiletTypeBarChart({ data }) {
+  const labels = getOptionLabels(data);
+  const toiletTypeAggregatedData = calculateToiletTypeAggregatedData(data);
+
   return (
     <BarChart
       labels={labels}
@@ -15,7 +19,9 @@ function ToiletTypeBarChart(props) {
   );
 }
 
-ToiletTypeBarChart.propTypes = {};
+ToiletTypeBarChart.propTypes = {
+  data: PropTypes.object.isRequired
+};
 ToiletTypeBarChart.defaultProps = {};
 
 export default ToiletTypeBarChart;

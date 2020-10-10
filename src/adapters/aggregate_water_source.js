@@ -1,11 +1,13 @@
-import { countByOptionsFromDE, getOptionsFromDE } from "./utils";
+import bindDataContext from "./data_context";
 
 const waterSourceDEId = "p2P8g0MnDBK";
 
-const options = getOptionsFromDE(waterSourceDEId);
+const calculateWaterSourceAggregatedData = data =>
+  bindDataContext(data).countByOptionsFromDE(waterSourceDEId);
 
-const waterSourceAggregatedData = countByOptionsFromDE(waterSourceDEId);
+const getOptionLabels = data =>
+  bindDataContext(data)
+    .getOptionsFromDE(waterSourceDEId)
+    .map(({ name }) => name);
 
-const labels = options.map(({ name }) => name);
-
-export { waterSourceAggregatedData, labels };
+export { calculateWaterSourceAggregatedData, getOptionLabels };

@@ -1,4 +1,5 @@
-import { sumByDEs, sumByLevel } from "./utils";
+import { sumByLevel } from "./utils";
+import bindDataContext from "./data_context";
 
 const labels = [
   "Disability in seeing",
@@ -47,12 +48,7 @@ const disabilityDEIds = [
   ]
 ]; // some/lot/fully // some - lot - fully
 
-const groupedAggregatedDisabilityData = sumByDEs(disabilityDEIds);
+const calculateAggregatedDisabilityData = data =>
+  sumByLevel(2)(bindDataContext(data).sumByDEs(disabilityDEIds));
 
-const SUM_LEVEL = 2;
-
-const aggregatedDisabilityData = sumByLevel(SUM_LEVEL)(
-  groupedAggregatedDisabilityData
-);
-
-export { labels, aggregatedDisabilityData };
+export { labels, calculateAggregatedDisabilityData };
