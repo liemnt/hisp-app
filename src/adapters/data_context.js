@@ -1,5 +1,3 @@
-import { sumDumpByDE } from "./utils";
-
 const getOptionsFromDE = data => deId => {
   const optionIds = data.metaData.dimensions[deId];
   return optionIds.map(optionId => data.metaData.items[optionId]);
@@ -40,7 +38,6 @@ const sumByDEs = data => deIds => {
 
 const bindDataContext = data => ({
   sumByDEs: sumByDEs(data),
-  sumDumpByDE: sumDumpByDE(data),
   getOptionsFromDE: getOptionsFromDE(data),
   countByOptionsFromDE: countByOptionsFromDE(data)
 });
