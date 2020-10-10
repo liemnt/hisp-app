@@ -19,13 +19,4 @@ const sumByLevel = level => {
   return sumSubArray;
 };
 
-const sumDumpByDE = data => (deIds, [min, max]) => {
-  return deIds.map(() => {
-    return data.rows.reduce(total => {
-      total += Math.floor(Math.random() * (max - min + 1) + min);
-      return total;
-    }, 0);
-  });
-};
-
-export { sumByLevel, sum, deepSum, sumDumpByDE };
+export { sumByLevel, sum, deepSum };
