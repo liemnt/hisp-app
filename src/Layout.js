@@ -12,6 +12,7 @@ import PersonnelPieChart from "./containers/PersonnelPieChart";
 import MortalityBarChart from "./containers/MortalityBarChart";
 import YearSelector from "./containers/YearSelector";
 import CloseButton from "./containers/CloseButton";
+import DisabilityChart from "./containers/DisabilityChart";
 
 function Layout() {
   return (
@@ -82,7 +83,7 @@ function Layout() {
         </Grid>
         <Grid item xs={12} md={6}>
           <Box p={2} boxShadow={2}>
-            The last chart
+            <DisabilityChart />
           </Box>
         </Grid>
       </Grid>

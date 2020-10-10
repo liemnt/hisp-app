@@ -1,6 +1,6 @@
-import { sumByDEs } from "./utils";
+import { sumByDEs, sum } from "./utils";
 
-const insuranceDEIds = [
+const groupedInsuranceDEIds = [
   "jxfyOMxkbIw",
   "y3h4wxW3w50",
   "ispm3X8fxSY",
@@ -12,6 +12,10 @@ const insuranceDEIds = [
     "w19F9i9XORa" // other place
   ]
 ];
+
+const insuranceDEIds = groupedInsuranceDEIds.map(dataValue =>
+  Array.isArray(dataValue) ? sum(dataValue) : dataValue
+);
 
 const labels = [
   "Delivery at home",

@@ -1,4 +1,4 @@
-import { sumByDEs } from "./utils";
+import { sum, sumByDEs } from "./utils";
 
 const labels = [
   "Total Death",
@@ -10,7 +10,6 @@ const labels = [
 ];
 
 const mortalityDeIds = [
-  ["AB4m6KuUXF8", "m5y4aLbmIOO", "akAYIsCrRwV", "mPTyd0nP5Xx", "LmGX6VpLkIX"],
   "AB4m6KuUXF8",
   "m5y4aLbmIOO",
   "akAYIsCrRwV",
@@ -18,6 +17,11 @@ const mortalityDeIds = [
   "LmGX6VpLkIX"
 ];
 
-const aggregatedMortalityData = sumByDEs(mortalityDeIds);
+const originalMortalityData = sumByDEs(mortalityDeIds);
+
+const aggregatedMortalityData = [
+  sum(originalMortalityData),
+  ...originalMortalityData
+];
 
 export { aggregatedMortalityData, labels };
