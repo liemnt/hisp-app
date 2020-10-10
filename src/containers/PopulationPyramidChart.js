@@ -16,7 +16,7 @@ const PopulationPyramidChart = ({ data }) => {
       labels={labels}
       data={[maleAggregatedData, femaleAggregatedData]}
       groupLabels={["Male", "Female"]}
-      title="Population Pyramid"
+      title="Population Details"
     />
   );
 };
